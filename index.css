@@ -15,12 +15,6 @@ a,p{
     word-spacing: normal;
 }
 
-.btxt{
-    margin: 0;
-    font-size: 12px;
-    font-family: 'Courier New', Courier, monospace;
-}
-
 .lks{
     margin:10px
 }
@@ -41,6 +35,11 @@ a{
 
 a:hover{
     color:green;
+}
+
+pre{
+    font-size: 12px; 
+    font-family: RobotoMono;
 }
 
 #main_div{
@@ -172,7 +171,7 @@ a:hover{
     .btn{
         font-size: small;
     }
-    .btxt{
+    pre{
         font-size: 8px;
     }
     .lks{
@@ -207,7 +206,7 @@ a:hover{
     .btn{
         font-size: small;
     }
-    .btxt{
+    pre{
         font-size: 8px;
     }
     .lks{
