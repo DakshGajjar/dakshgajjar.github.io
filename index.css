@@ -229,6 +229,11 @@ span{
 }
 
 @media (min-width: 600px) and (max-width: 900px){
+    pre{
+        white-space: pre-wrap;
+    }
+
+    
     #stxt{
         font-size: 7px;
     }
