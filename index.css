@@ -277,16 +277,10 @@ span{
 @media (max-width: 500px){
     #stxt{
         font-size: 5px;
-        text-align: left;
-        margin:0;
-        padding:0;
     }
     
     #btxt{
         font-size: 7px;
-        text-align: left;
-        margin:0;
-        padding:0;
     }
 
     #temp{
