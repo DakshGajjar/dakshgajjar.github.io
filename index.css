@@ -56,9 +56,8 @@ body{
 
 #stxt,#btxt{
     margin: 20px;
-    white-space: pre-wrap;
+    white-space: 1;
     word-wrap: normal;
-    word-spacing: 0.01px;
 }
 
 #stxt{
