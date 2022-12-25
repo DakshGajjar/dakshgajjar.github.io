@@ -56,6 +56,9 @@ body{
 
 #stxt,#btxt{
     margin: 20px;
+    white-space: pre-wrap;
+    word-wrap: normal;
+    word-spacing: 0.01px;
 }
 
 #stxt{
@@ -229,12 +232,6 @@ span{
 }
 
 @media (min-width: 600px) and (max-width: 900px){
-    pre{
-        white-space: pre-wrap;
-        word-wrap: normal;
-    }
-
-    
     #stxt{
         font-size: 7px;
     }
