@@ -56,7 +56,7 @@ body{
 
 #stxt,#btxt{
     margin: 20px;
-    white-space: pre;
+    font-family: monospace;
 }
 
 #stxt{
