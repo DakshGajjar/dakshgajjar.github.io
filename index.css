@@ -311,8 +311,8 @@ span{
         height: 60%;
     }
 
-    #ttl{
-        font-size: 8px;
+    .ttl{
+        font-size: 12px;
     }
 
     .bold,.ele,.hd{
