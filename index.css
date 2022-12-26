@@ -296,7 +296,6 @@ span{
     }
 
     #menu{
-
         width: 98.5%;
         height: 7.55%;
         top: 92%;
@@ -312,7 +311,7 @@ span{
     }
 
     .ttl{
-        font-size: 11px;
+        font-size: 10px;
     }
 
     .bold,.ele,.hd{
