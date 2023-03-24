@@ -94,8 +94,31 @@ function ec(){
     close(experience,ebtn)
 }
 
-if((window.screen.height>window.screen.width && window.screen.width<500) || window.screen.width<900){
+const ifIsMobile = { // detect the mobile devices
+Android: function() {
+    return navigator.userAgent.match(/Android/i);
+},
+BlackBerry: function() {
+    return navigator.userAgent.match(/BlackBerry/i);
+},
+iOS: function() {
+    return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+},
+Opera: function() {
+    return navigator.userAgent.match(/Opera Mini/i);
+},
+Windows: function() {
+    return navigator.userAgent.match(/IEMobile/i);
+},
+any: function() {
+    return (ifIsMobile.Android() || ifIsMobile.BlackBerry() || ifIsMobile.iOS() || ifIsMobile.Opera() || ifIsMobile.Windows());
+}};
+
+
+//if((window.screen.height>window.screen.width && window.screen.width<500) || window.screen.width<900){
+ if (ifIsMobile.any()){   
     banner = document.getElementById('banner')
+    
     function bans(div){
         if(banner.style.top=="15%" && div.style.display=="block"){
             banner.style.top="50%"
