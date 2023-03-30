@@ -1,11 +1,13 @@
+//window.screen.width --> window.screen.availWidth
+//window.screen.height --> window.screen.availHeight
 var mn = 14
-var w = Math.floor(window.screen.width/mn)*mn;
-var h = window.screen.height;
+var w = Math.floor(window.screen.availWidth/mn)*mn;
+var h = window.screen.availHeight;
 var dis=w/mn;
-if(window.screen.width<window.screen.height){
+if(window.screen.availWidth<window.screen.availHeight){
     var mn = 6
-    var w = Math.floor(window.screen.width/mn)*mn-6;
-    var h = window.screen.height;
+    var w = Math.floor(window.screen.availWidth/mn)*mn-6;
+    var h = window.screen.availHeight;
     var dis = w/mn
 }
 var lim = h/dis
@@ -94,7 +96,7 @@ function ec(){
     close(experience,ebtn)
 }
 
-const ifIsMobile = { // detect the mobile devices
+`const ifIsMobile = { // detect the mobile devices
 Android: function() {
     return navigator.userAgent.match(/Android/i);
 },
@@ -112,11 +114,11 @@ Windows: function() {
 },
 any: function() {
     return (ifIsMobile.Android() || ifIsMobile.BlackBerry() || ifIsMobile.iOS() || ifIsMobile.Opera() || ifIsMobile.Windows());
-}};
+}};`
 
 
-//if((window.screen.height>window.screen.width && window.screen.width<500) || window.screen.width<900){
- if (ifIsMobile.any()){   
+if(window.screen.availHeight > window.screen.availWidth){
+//if (ifIsMobile.any()){   
     banner = document.getElementById('banner')
     
     function bans(div){
