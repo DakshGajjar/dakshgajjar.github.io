@@ -170,7 +170,7 @@ if(window.screen.availHeight > window.screen.availWidth){
 //if (ifIsMobile.any()){   
     //var cb = document.getElementById('cb')
     banner = document.getElementById('banner')
-    banner.style.width = '150px'
+    //banner.style.width = '150px'
     
     function bans(div){
         if(banner.style.top=="15%" && div.style.display=="block"){
