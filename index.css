@@ -251,6 +251,10 @@ span{
 }
 
 @media (min-width: 600px) and (max-width: 900px){
+    #bimg{
+        height: 150px;
+    }
+    
     #stxt{
         font-size: 7px;
     }
@@ -297,6 +301,10 @@ span{
 }
 
 @media (max-width: 500px){
+    #bimg{
+        height: 150px;
+    }
+    
     #stxt,#btxt{
         display: none;
     }
@@ -351,6 +359,10 @@ span{
 }
 
 @media (max-width: 280px){
+    #bimg{
+        height: 150px;
+    }
+    
     #stxt{
         font-size: 4px;
     }
