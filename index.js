@@ -171,52 +171,6 @@ if(window.screen.availHeight > window.screen.availWidth){
     var cb = document.getElementById('cb')
     banner = document.getElementById('banner')
     
-    //added-start
-    var mn = 6
-    var w = Math.floor(window.screen.availWidth/mn)*mn;
-    var h = window.screen.availHeight;
-    var dis=w/mn;
-    if(window.screen.availWidth<window.screen.availHeight){
-    var mn = 14
-    var w = Math.floor(window.screen.availWidth/mn)*mn-6;
-    var h = window.screen.availHeight;
-    var dis = w/mn
-    }
-    var lim = h/dis
-    var cb = document.getElementById('cb')
-    cb.style.width  = w; 
-    cb.style.height = h;
-
-    var raw = document.getElementsByClassName('raw')
-    r = raw[0]
-    r.style.width  = w; 
-    r.style.height = dis;
-
-    //var main = document.getElementById('main')
-    clmn = "<div class='clmn' style='width:"+dis+"px;height:"+dis+"px'></div>"
-    //raw = "<div class='raw' style='height:"+dis+"px'></div>"
-
-    function squares(){
-        clmns = ""
-        for(i=0;i<mn;i++){
-            clmns = clmns + clmn;
-        }
-        return clmns
-    }
-
-    function mkraws(){
-        raws = ""
-        raw.innerHTML = "<div class='raw' style='height:"+dis+"px'>"+squares()+"</div>"
-        for(i=0;i<lim;i++){
-            raws = raws+raw.innerHTML
-        }
-        //console.log(raws)
-        return raws
-    }
-
-    cb.innerHTML = "<div id='cb'>"+mkraws()+"</div>"
-    //added-finish
-    
     function bans(div){
         if(banner.style.top=="15%" && div.style.display=="block"){
             banner.style.top="50%"
