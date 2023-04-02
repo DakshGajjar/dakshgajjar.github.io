@@ -1,48 +1,118 @@
-//window.screen.width --> window.screen.availWidth
-//window.screen.height --> window.screen.availHeight
-var mn = 14
-var w = Math.floor(window.screen.availWidth/mn)*mn;
-var h = window.screen.availHeight;
-var dis=w/mn;
-if(window.screen.availWidth<window.screen.availHeight){
-    var mn = 6
-    var w = Math.floor(window.screen.availWidth/mn)*mn-6;
-    var h = window.screen.availHeight;
-    var dis = w/mn
+const canvas = document.getElementById('myCanvas');
+const ctx = canvas.getContext('2d');
+
+let squareSize = window.innerWidth / 14;
+
+if (window.innerWidth < 768) {
+    squareSize = window.innerWidth / 5;
 }
-var lim = h/dis
-var cb = document.getElementById('cb')
-cb.style.width  = w; 
-cb.style.height = h;
 
-var raw = document.getElementsByClassName('raw')
-r = raw[0]
-r.style.width  = w; 
-r.style.height = dis;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-//var main = document.getElementById('main')
-clmn = "<div class='clmn' style='width:"+dis+"px;height:"+dis+"px'></div>"
-//raw = "<div class='raw' style='height:"+dis+"px'></div>"
+const squares = [];
 
-function squares(){
-    clmns = ""
-    for(i=0;i<mn;i++){
-        clmns = clmns + clmn;
+for (let i = 0; i < Math.ceil(window.innerHeight / squareSize); i++) {
+    for (let j = 0; j < Math.ceil(window.innerWidth / squareSize); j++) {
+    squares.push({
+        x: j * squareSize,
+        y: i * squareSize,
+        size: squareSize,
+        color: '#252525',
+        hoverColor: '#ffffff',
+        isHovered: false
+        });
     }
-    return clmns
 }
 
-function mkraws(){
-    raws = ""
-    raw.innerHTML = "<div class='raw' style='height:"+dis+"px'>"+squares()+"</div>"
-    for(i=0;i<lim;i++){
-        raws = raws+raw.innerHTML
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    squares.forEach(square => {
+        ctx.fillStyle = square.isHovered ? square.hoverColor : square.color;
+        ctx.fillRect(square.x, square.y, square.size, square.size);
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = '#ffffff';
+        ctx.strokeRect(square.x, square.y, square.size, square.size);
+    });
+}
+
+function update() {
+    squares.forEach(square => {
+        if (square.isHovered) {
+            return;
+        }
+
+        square.color = '#252525';
+        });
+}
+
+function onMouseMove(event) {
+    const rect = canvas.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+
+    squares.forEach(square => {
+        if (x >= square.x && x <= square.x + square.size && y >= square.y && y <= square.y + square.size) {
+            if (!square.isHovered) {
+                update();
+                square.isHovered = true;
+                square.color = '#ffffff';
+            }
+        } else {
+            if (square.isHovered) {
+                update();
+                square.isHovered = false;
+            }
+        }
+    });
+
+    draw();
+}
+
+window.addEventListener('resize', () => {
+    let newSquareSize = window.innerWidth / 10;
+
+    if (window.innerWidth < 768) {
+        newSquareSize = window.innerWidth / 5;
     }
-    //console.log(raws)
-    return raws
-}
 
-cb.innerHTML = "<div id='cb'>"+mkraws()+"</div>"
+    squares.forEach(square => {
+        square.x *= newSquareSize / squareSize;
+        square.y *= newSquareSize / squareSize;
+        square.size *= newSquareSize / squareSize;
+    });
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    for (let i = 0; i < Math.ceil(window.innerHeight / newSquareSize); i++) {
+        for (let j = 0; j < Math.ceil(window.innerWidth / newSquareSize); j++) {
+            if (!squares[i * Math.ceil(window.innerWidth / newSquareSize) + j]) {
+                squares.push({
+                    x: j * newSquareSize,
+                    y: i * newSquareSize,
+                    size: newSquareSize,
+                    color: '#252525',
+                    hoverColor: '#ffffff',
+                    isHovered: false
+                    });
+            } else {
+                squares[i * Math.ceil(window.innerWidth / newSquareSize) + j].x = j * newSquareSize;
+                squares[i * Math.ceil(window.innerWidth / newSquareSize) + j].y = i * newSquareSize;
+                squares[i * Math.ceil(window.innerWidth / newSquareSize) + j].size = newSquareSize;
+            }
+        }
+    }
+
+    squareSize = newSquareSize;
+
+    draw();
+});
+
+draw();
+
+canvas.addEventListener('mousemove', onMouseMove);
 
 var about = document.getElementById('about')
 var abtn = document.getElementById('abt')
@@ -98,53 +168,10 @@ function ec(){
 
 if(window.screen.availHeight > window.screen.availWidth){
 //if (ifIsMobile.any()){   
-    banner = document.getElementById('banner')
-    
-    //added-start
-    var mn = 6
-    var w = Math.floor(window.screen.availWidth/mn)*mn;
-    var h = window.screen.availHeight;
-    var dis=w/mn;
-    if(window.screen.availWidth<window.screen.availHeight){
-    var mn = 14
-    var w = Math.floor(window.screen.availWidth/mn)*mn-6;
-    var h = window.screen.availHeight;
-    var dis = w/mn
-    }
-    var lim = h/dis
     var cb = document.getElementById('cb')
-    cb.style.width  = w; 
-    cb.style.height = h;
-
-    var raw = document.getElementsByClassName('raw')
-    r = raw[0]
-    r.style.width  = w; 
-    r.style.height = dis;
-
-    //var main = document.getElementById('main')
-    clmn = "<div class='clmn' style='width:"+dis+"px;height:"+dis+"px'></div>"
-    //raw = "<div class='raw' style='height:"+dis+"px'></div>"
-
-    function squares(){
-        clmns = ""
-        for(i=0;i<mn;i++){
-            clmns = clmns + clmn;
-        }
-        return clmns
-    }
-
-    function mkraws(){
-        raws = ""
-        raw.innerHTML = "<div class='raw' style='height:"+dis+"px'>"+squares()+"</div>"
-        for(i=0;i<lim;i++){
-            raws = raws+raw.innerHTML
-        }
-        //console.log(raws)
-        return raws
-    }
-
-    cb.innerHTML = "<div id='cb'>"+mkraws()+"</div>"
-    //added-finish
+    banner = document.getElementById('banner')
+    bimg = document.getElementById('bimg')
+    bimg.style.height = "150px"
     
     function bans(div){
         if(banner.style.top=="15%" && div.style.display=="block"){

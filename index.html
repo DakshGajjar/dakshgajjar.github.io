@@ -12,53 +12,16 @@
     </head>
     <body>
         <div id="main">
+            <canvas id="myCanvas"></canvas>
             <!--<canvas id="myCanvas">
 
-            </canvas>-->
+            </canvas>
             <div id="cb">
                 <div class="raw"></div>
-            </div>
+            </div>-->
 
             <div id="banner">
-                <pre id="mtxt">
-##:::: ##: ########: ##::: ##:      ####:     #######:: ##::::'## 
-##:::: ##: ##.....::. ##:'##:        ##:     ##:::. ##: ###::'### 
-##:::: ##: ##::::::::. ####:         ##:     ##:::. ##: ####'#### 
-#########: ######:::::. ##:          ##:    '##:::. ##: ## ### ## 
-##.... ##: ##...::::::: ##:          ##:     #########: ##. #: ## 
-##:::: ##: ##:::::::::: ##:          ##:     ##.... ##: ##:.:: ## 
-##:::: ##: ########:::: ##:        '####:    ##:::: ##: ##:::: ## 
-
-         ########:::'#######::'##:::'##::'######::'##::::'## 
-         ##.... ##: ##:::. ##: ##::'##::'##... ##: ##:::: ## 
-         ##:::: ##: ##:::. ##: ##:'##::: ##:::..:: ##:::: ## 
-         ##:::: ##: ##:::. ##: #####::::. ######:: ######### 
-         ##:::: ##: #########: ##. ##::::..... ##: ##.... ## 
-         ##:::: ##: ##.... ##: ##:. ##::'##::: ##: ##:::: ## 
-         ########:: ##:::: ##: ##::. ##:. ######:: ##:::: ## 
-                </pre>
-
-                <pre id="stxt">
-██╗    ██╗ ███████╗ ██╗     ██╗ ██╗     ██╗      ████████╗  ██╗       ██╗
-██║    ██║ ██╔════╝ ╚██╗   ██╔╝ ██║     ██║     ██╔═════██╗ ███╗     ███║
-██║    ██║ ██║       ╚██╗ ██╔╝  ██║     ██║     ██║     ██║ ████╗   ████║
-█████████║ ██████╗    ╚████╔╝   ██║     ██║     ██████████║ ██╔██  ██╔██║
-██╔════██║ ██╔═══╝     ╚██╔╝    ██║     ██║     ██╔═════██║ ██║╚████╔╝██║
-██║    ██║ ██║          ██║     ╚═╝     ██║     ██║     ██║ ██║ ╚██╔╝ ██║
-██║    ██║ ███████╗     ██║     ██╗     ██║     ██║     ██║ ██║  ╚═╝  ██║
-╚═╝    ╚═╝ ╚══════╝     ╚═╝     ╚═╝     ╚═╝     ╚═╝     ╚═╝ ╚═╝       ╚═╝
-                </pre>
-
-                <pre id="btxt">
-██████████╗   ████████╗  ██╗   ██╗ █████████╗ ██╗    ██╗
-██╔══════██║ ██╔═════██║ ██║  ██╔╝ ██╔════██║ ██║    ██║
-██║      ██║ ██║     ██║ ██║ ██╔╝  ██║    ╚═╝ ██║    ██║
-██║      ██║ ██████████║ █████╔╝   █████████╗ █████████║
-██║      ██║ ██╔═════██║ ██╔═██╗   ╚══════██║ ██╔════██║
-██║      ██║ ██║     ██║ ██║  ██╗  ██     ██║ ██║    ██║
-██████████╔╝ ██║     ██║ ██║   ██╗ █████████║ ██║    ██║
-╚═════════╝  ╚═╝     ╚═╝ ╚═╝   ╚═╝ ╚════════╝ ╚═╝    ╚═╝ 
-                </pre>
+                <img id="bimg" src="banner.png"  alt="..">
             </div>
 
             <div id="menu">
@@ -75,7 +38,7 @@
 
                 <div class="text">
 
-                    <p class="bold">I am Daksh Gajjar - a computer engineer, cyber security enthusiast and Python developer with a strong desire to explore new things and the ability to learn new technologies swiftly.</p>
+                    <p class="bold">I am Daksh Gajjar - a computer engineer, cyber security enthusiast and Python developer.</p>
 
                     <p class="hd">Technical Skills</p>
                     
@@ -118,14 +81,14 @@
                 </div>
 
                 <div class="text">
-                    <p class="hd"><a class="prjl" href="https://github.com/DakshGajjar/Berserker">Berserker</a></p>
-                    <p class="ele" style="text-align: justify;">Berserker is a web application created with python selenium, flask, pyttsx3, pytube and movipepy to make short videos containing reddit posts and comments with a Minecraft gameplay background by just passing the keyword as an input or using randomely generated input.</p>
+                    <p class="hd"><a class="prjl" href="https://github.com/DakshGajjar/Berserker">Berserker</a> [<a class="prjl" href="http://executioner.pythonanywhere.com">website</a>]</p>
+                    <p class="ele" style="text-align: justify;">Web application created with python selenium, flask, pyttsx3, pytube and movipepy to make short videos containing reddit posts and comments with a Minecraft gameplay background by just passing the keyword as an input or using randomely generated input.</p>
 
                     <p class="hd"><a class="prjl" href="https://github.com/DakshGajjar/Crop-AI">Crop AI</a></p>
-                    <p class="ele" style="text-align: justify;">Crop AI is a machine learning-based web application developed to help farmers. These include modules such as crop recommendation, crop yield prediction, plant disease and pest detection.</p>
+                    <p class="ele" style="text-align: justify;">Web application developed to execute agriculture related functions including crop recommendation, crop yield prediction, plant disease and pest detection.</p>
     
                     <p class="hd"><a class="prjl" href="https://github.com/DakshGajjar/Image-Editor">Python Image Editor</a></p>
-                    <p class="ele" style="text-align: justify;">An application with interactive GUI that takes images (png, jpg, jpeg) as an input and performs various functions such as cropping an image, changing the brightness of an image, colors, and grey-scaling an image and many more.</p>
+                    <p class="ele" style="text-align: justify;">Application with interactive GUI that takes images (png, jpg, jpeg) as an input and performs various functions such as cropping an image, changing the brightness of an image, colors, and grey-scaling an image and many more.</p>
                     </div>
                 </div>
 

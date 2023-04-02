@@ -3,10 +3,6 @@
     src: url("RobotoMono.ttf");
 }
 
-*{
-    overflow: hidden; 
-}
-
 *, html {
     margin:0;
     padding:0;   
@@ -21,6 +17,7 @@ body{
     background-size: 100%;
     color: whitesmoke;
     font-family: rbm;
+    overflow: hidden; 
 }
 
 /*#main{
@@ -35,15 +32,28 @@ body{
     z-index: 1;
     background-color: #252525;
     transform: translate(-50%, -50%);
-    border: solid white 3px;
+    padding: 0px;
+    line-height: 0%;
+}
+
+#bimg{
+    position: relative;
+    height: 265px;
+    margin: 0;
+    padding: 0;
 }
 
 #mtxt{
     display: none;
 }
 
-#cb{
+#myCanvas{
     z-index: 0;
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
 .raw{
@@ -69,7 +79,7 @@ body{
 }
 
 #btxt{
-    font-size: 8.5px;
+    font-size: 11px;
 }
 
 #menu{
