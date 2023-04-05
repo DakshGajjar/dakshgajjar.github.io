@@ -3,6 +3,22 @@
     src: url("RobotoMono.ttf");
 }
 
+tr,td,table{
+    padding: 5px;
+    text-align: justify;
+}
+
+.pros{
+    font-size: 12px;
+}
+
+table{
+    margin-left: 10px;
+    border-collapse: collapse;
+    font-size: 14px;
+    width: 95%;
+}
+
 *, html {
     margin:0;
     padding:0;   
@@ -251,6 +267,12 @@ span{
 }
 
 @media (min-width: 600px) and (max-width: 900px){
+    tr,td,table{
+        padding: 5px;
+        text-align: justify;
+        font-size: 12px;
+    }
+
     #bimg{
         height: 150px;
     }
@@ -301,6 +323,12 @@ span{
 }
 
 @media (max-width: 500px){
+    tr,td,table{
+        padding: 5px;
+        text-align: justify;
+        font-size: 10px;
+    }
+
     #bimg{
         height: 150px;
     }
