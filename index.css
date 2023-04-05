@@ -267,6 +267,11 @@ span{
 }
 
 @media (min-width: 600px) and (max-width: 900px){
+    
+    .pros{
+        font-size:9.5px;
+    }
+    
     tr,td,table{
         padding: 5px;
         text-align: justify;
@@ -323,6 +328,10 @@ span{
 }
 
 @media (max-width: 500px){
+    .pros{
+        font-size:9.5px;
+    }
+    
     tr,td,table{
         padding: 5px;
         text-align: justify;
