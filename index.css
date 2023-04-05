@@ -268,7 +268,7 @@ span{
 
 @media (min-width: 600px) and (max-width: 900px){
     .pros{
-        font-size:9.5px;
+        font-size:8px;
     }
     
     tr,td,table{
@@ -328,7 +328,7 @@ span{
 
 @media (max-width: 500px){
     .pros{
-        font-size:9.5px;
+        font-size:8px;
     }
     
     tr,td,table{
@@ -395,6 +395,16 @@ span{
 }
 
 @media (max-width: 280px){
+    .pros{
+        font-size:8px;
+    }
+    
+    tr,td,table{
+        padding: 5px;
+        text-align: justify;
+        font-size: 12px;
+    }
+    
     #bimg{
         height: 150px;
     }
