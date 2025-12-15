@@ -3,195 +3,303 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Daksh Gajjar</title>
-        <link rel="icon" href="terminal.png" type="image/icon type">
+        <title>Dynamic Character Canvas</title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="index.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <link rel="icon" href="terminal.png" type="image/icon type">
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                background: #252525;
+                color: whitesmoke;
+                font-family: 'IBM Plex Mono', monospace;
+                overflow: hidden;
+                touch-action: none;
+            }
+            canvas {
+                display: block;
+            }
+            #main-rect {
+                position: absolute;
+                width: 85vw;
+                height: 80vh;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                background: transparent;
+                z-index: 10;
+                padding: 10px;
+                box-sizing: border-box;
+            }
+            .section {
+                background: rgba(37, 37, 37, 0.9);
+                border: 1px solid white;
+                border-radius: 3px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 10px;
+            }
+            #top-left {
+                width: 40%;
+                display: inline;
+                float: left;
+                margin-right: 10px;
+                height: 60%;
+            }
+            #top-right {
+                width: 55%;
+                float: left;
+                height: 60%;
+            }
+            .bottom-part {
+                width: 31.4%;
+                float: left;
+                height: 30%;
+                margin-right: 10px;
+            }
+            .bottom-part:last-child {
+                margin-right: 0;
+            }
+            .content{
+                padding: 1rem;
+            }
+            .contact{
+                text-align: center;
+                width: 30%;
+                padding: 1rem;
+                color: azure;
+            }
+            #l1{
+                text-align: center;
+                font-size: 3rem;
+            }
+
+            @media (max-width: 768px) {
+                #main-rect {
+                    width: 90vw;
+                    height: auto;
+                    top: 10%;
+                    transform: translateX(-50%);
+                    overflow-y: auto;
+                    max-height: 80vh;
+                }
+                #top-left, #top-right, .bottom-part {
+                    width: 100%;
+                    float: none;
+                    display: block;
+                    margin-bottom: 10px;
+                    height: auto;
+                    min-height: 60px;
+                    box-sizing: border-box;
+                }
+                #main-rect {
+                    width: 90vw;
+                    height: auto;
+                    top: 10%;
+                    transform: translateX(-50%);
+                }
+                .section {
+                    width: 100%;
+                    float: none;
+                    height: auto;
+                    margin-bottom: 10px;
+                    padding: 20px 0;
+                }
+                #top-left, #top-right, .bottom-part {
+                    width: 100%;
+                    float: none;
+                    margin-right: 0;
+                    height: auto;
+                }
+                #l1{
+                    text-align: center;
+                    font-size: 2rem;
+                }
+            }
+        </style>
     </head>
     <body>
-        <div id="main">
-            <canvas id="myCanvas"></canvas>
-            <!--<canvas id="myCanvas">
-
-            </canvas>
-            <div id="cb">
-                <div class="raw"></div>
-            </div>-->
-
-            <div id="banner">
-                <img id="bimg" src="banner.png"  alt="..">
-            </div>
-
-            <div id="menu">
-                <button type="button" id="abt" class="btns" onclick="af()">About</button>
-                <button type="button" id="prj" class="btns" onclick="pf()">Projects</button>
-                <button type="button" id="exp" class="btns" onclick="ef()">Experience</button>
-            </div>
-
-            <div id="about">
-                <div class="close">
-                    <p class="ttl">&nbsp;About</p>
-                    <button type="button" class="cls" onclick="ac()"><span>&times;</span></button>
-                </div>
-
-                <div class="text">
-
-                    <p class="bold">I am Daksh Gajjar - a Computer engineer aspiring cybersecurity professional and Python developer.</p>
-
-                    <p class="hd">Tech-stack</p>
-
-                    <table>
-                        <tr>
-                            <td class="ctbl">Programming</td>
-                            <td class="ctbl">-&nbsp;</td>
-                            <td class="ctbl"> C, C++, Java, Javascript, Python3, Ruby, Kotlin</td>
-                        </tr>
-                        <tr>
-                            <td class="ctbl">Databases</td>
-                            <td class="ctbl">-</td>
-                            <td class="ctbl">Oracle SQl, MySQl, MongoDB</td>
-                        </tr>
-                        <tr>
-                            <td class="ctbl">Frameworks</td>
-                            <td class="ctbl">-</td>
-                            <td class="ctbl">Django, Flask, Selenium, TensorFlow, NIST CSF & RMF</td>
-                        </tr>
-                        <tr>
-                            <td class="ctbl">Interests</td>
-                            <td class="ctbl">-</td>
-                            <td class="ctbl">SecOps, OffSec, RedTeam, SecDev, AppSec</td>
-                        </tr>
-                    </table>                 
-                    
-                    <p class="hd">Links</p>
-
-                    <table>
-                        <tr>
-                            <td class="ctbl">Github</td>
-                            <td class="ctbl">-&nbsp;</td>
-                            <td class="ctbl"><a class="lks" href="https://github.com/dakshgajjar">https://github.com/dakshgajjar</td>
-                        </tr>
-                        <tr>
-                            <td class="ctbl">LinkedIn</td>
-                            <td class="ctbl">-</td>
-                            <td class="ctbl"><a class="lks" href="https://linkedin.com/in/daksh-gajjar/">https://linkedin.com/in/daksh-gajjar/</td>
-                        </tr>
-                        <tr>
-                            <td class="ctbl">Gmail</td>
-                            <td class="ctbl">-</td>
-                            <td class="ctbl"><a class="lks" href="mailto:dakshgajjar25@gmail.com">dakshgajjar25@gmail.com</td>
-                        </tr>
-                    </table>
-
-                </div>
-        
-            </div>
-
-            <div id="projects">
-
-                <div class="close">
-                    <p class="ttl">&nbsp;Projects</p>
-                    <button type="button" class="cls" onclick="pc()"><span>&times;</span></button>
-                </div>
-
-                <div class="text">
-
-                    <p class="hd"><a class="prjl" href="https://github.com/DakshGajjar/llama-phish">llama-phish</a></p>
-
-                    <table class="pros">
-                        <tr>
-                            <td class="ctbl">Type</td>
-                            <td class="ctbl">-&nbsp;</td>
-                            <td class="ctbl">CLI-app</td>
-                        </tr>
-                        <tr>
-                            <td class="ctbl">Libraries Used</td>
-                            <td class="ctbl">-&nbsp;</td>
-                            <td class="ctbl">Flask, pyngork, llamaapi, pyshorteners </td>
-                        </tr>
-                    </table>
-                    
-                    <p class="hd"><a class="prjl" href="https://github.com/DakshGajjar/Berserker">Berserker</a> [<a class="prjl" href="http://executioner.pythonanywhere.com">website</a>]</p>
-
-                    <table class="pros">
-                        <tr>
-                            <td class="ctbl">Type</td>
-                            <td class="ctbl">-&nbsp;</td>
-                            <td class="ctbl">web-app</td>
-                        </tr>
-                        <tr>
-                            <td class="ctbl">Libraries Used</td>
-                            <td class="ctbl">-&nbsp;</td>
-                            <td class="ctbl">Flask, BeautifulSoup, gTTS, PIL, MoviePy</td>
-                        </tr>
-                    </table>
-
-                    <!--<p class="ele" style="text-align: justify;">Web application created with python selenium, flask, pyttsx3, pytube and movipepy to make short videos containing reddit posts and comments with a Minecraft gameplay background by just passing the keyword as an input or using randomely generated input.</p>-->
-
-                    <p class="hd"><a class="prjl" href="https://github.com/DakshGajjar/Crop-AI">Crop AI</a></p>
-
-                    <table class="pros">
-                        <tr>
-                            <td class="ctbl">Type</td>
-                            <td class="ctbl">-&nbsp;</td>
-                            <td class="ctbl">web-app</td>
-                        </tr>
-                        <tr>
-                            <td class="ctbl">Libraries Used</td>
-                            <td class="ctbl">-&nbsp;</td>
-                            <td class="ctbl">Django, Numpy, Pandas, TensorFlow</td>
-                        </tr>
-                    </table>
-
-                    <!--<p class="ele" style="text-align: justify;">Web application developed to execute agriculture related functions including crop recommendation, crop yield prediction, plant disease and pest detection.</p>-->
-
+        <canvas id="myCanvas"></canvas>
+        <div id="main-rect">
+            <div id="top-left" class="section">
+                <div class="content">
+                    <h1 id="l1">
+                        Hi! I'm Daksh
+                    </h1>
+                    <hr>
+                    <h3 style="text-align: center;">
+                        Security Engineer [Automation/DevSecOps]
+                    </h3>
+                    <h5 style="text-align: center;">
+                        CompTIA Sec+, CySA+, MS SC-900
+                    </h5>
+                    <hr>
+                    <div style="display: flex;">
+                        <a class="contact" href="https://github.com/dakshgajjar" style="display: flex;">
+                            Github
+                        </a>
+                        <a class="contact" href="https://linkedin.com/in/daksh-gajjar">LinkedIn</a>
+                        <a class="contact" href="mailto:dakshgajjar25@gmail.com">Email</a>
                     </div>
                 </div>
-
+                
             </div>
-
-            <div id="experience">
-                <div class="close">
-                    <p class="ttl">&nbsp;Experience</p>
-                    <button type="button" class="cls" onclick="ec()"><span>&times;</span></button>
+            <div id="top-right" class="section">
+                <div class="content">
+                    <h3>Experience</h3>
+                    <hr>
+                    <p style="font-size: small;font-weight:bolder">Cybersecurity Specialist at Bell Canada [BCE Inc]</p>
+                    <hr> 
+                    <p style="text-align:justify;font-size: 12px">
+                        Led major automation initiatives in the <i>Security Perimeter Team</i> to automate threat intelligence, incident response, and security configurations.
+                    </p>
+                    <p style="text-align:justify;font-size:12px">
+                        Developed an <i>automated reporting application</i> that uses APIs to generate interactive HTML reports with statistics, such as top events with timelines and their sources.
+                    </p>
+                    <p style="text-align:justify;font-size:12px">
+                        Created an <i>IP-based lookup system</i> that processes <i>2.5 billion IP addresses in just 3 hours</i>. Saved around <i>1,800 hours</i> by automating repetitive tasks with custom workflows.
+                    </p>
+                    <p style="text-align:justify;font-size:12px">
+                        Worked with clients across <i>residential, enterprise, and government sectors</i> to configure optimal security settings, reducing false positives while more precisely addressing true positives.
+                    </p>
                 </div>
-
-                <div class="text">
-                    <p class="hd">Security Operations Intern - Seascope Technologies</p>
-                    <p class="ele">Key Contributions: </p>
-                    
-                    <table>
-                        <tr>
-                            <td class="ctbl">-&nbsp;</td>
-                            <td class="ctbl">Collaborated with a team to develop a comprehensive cybersecurity framework and blueprint.</td>
-                        </tr>
-                        <tr>
-                            <td class="ctbl">-&nbsp;</td>
-                            <td class="ctbl">Developed a detailed blueprint outlining the implementation and maintenance of the security framework, providing a clear roadmap for Seascope Technology's security posture</td>
-                        </tr>
-                        <tr>
-                            <td class="ctbl">-&nbsp;</td>
-                            <td class="ctbl">Assisted in the development of incident response plans and procedures to ensure an effective response to security breaches.</td>
-                        </tr>
-                        <tr>
-                            <td class="ctbl">-&nbsp;</td>
-                            <td class="ctbl">Created guidelines for the company's security operations, ensuring compliance with industry standards and best practices.</td>
-                        </tr>
-                    </table>
-
-                    <!--<p class="ele" style="text-align: justify;">- </p>
-                    <p class="ele" style="text-align: justify;">- </p>
-                    <p class="ele" style="text-align: justify;">- </p>
-                    <p class="ele" style="text-align: justify;">- </p>-->
-                    </div>
+            </div>
+            <div class="bottom-part section">
+                <div class="content" style="font-size: 12px;">
+                    <h4>Llama-phish</h4>
+                    <hr>
+                    <p style="text-align:justify">
+                        A tool that replicates the behaviour of a chat-based Large Language Model (LLM) like ChatGPT. It uses phishing-like tactics to deceive users into interacting with a fake AI Chatbot interface to capture user prompts while giving them actual output as well.
+                    </p>
                 </div>
-
             </div>
-
-            <div id="temp">
-                <hr id="border">
+            <div class="bottom-part section">
+                <div class="content" style="font-size: 12px;">
+                    <h4>Velociraptor PrintNightmare Artifact</h4>
+                    <hr>
+                    <p style="text-align:justify">
+This artifact checks the Windows registry for the <i>NoWarningNoElevationOnInstall</i> key. If set to <i>1</i>, the system is vulnerable to remote code execution via the Print Spooler service. If the key is missing or set to `0`, the system is not vulnerable.
+                    </p>
+                </div>
             </div>
-        <script src="index.js" async defer></script>
+            <div class="bottom-part section">
+                <div class="content" style="font-size: 12px;">
+                    <h4>Berserker</h4>
+                    <hr>
+                    <p style="text-align:justify">
+                        web application created to make short videos containing reddit posts and comments with a Minecraft gameplay background by just passing the keyword as an input. 
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const canvas = document.getElementById('myCanvas');
+            const ctx = canvas.getContext('2d');
+
+            // Generate random characters
+            function getRandomChar() {
+                const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=[]{}|;:,.<>?';
+                return chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+
+            // Initialize squares
+            let squares = [];
+            let squareSize;
+
+            function initSquares() {
+                squareSize = Math.max(30, Math.min(60, window.innerWidth / 10));
+                if (window.innerWidth < 768) {
+                    squareSize = Math.max(20, Math.min(40, window.innerWidth / 5));
+                }
+
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+
+                squares = [];
+                const cols = Math.ceil(canvas.width / squareSize);
+                const rows = Math.ceil(canvas.height / squareSize);
+
+                for (let i = 0; i < rows; i++) {
+                    for (let j = 0; j < cols; j++) {
+                        squares.push({
+                            x: j * squareSize,
+                            y: i * squareSize,
+                            size: squareSize,
+                            color: '#000000',
+                            hoverColor: '#ffffff',
+                            isHovered: false,
+                            char: getRandomChar()
+                        });
+                    }
+                }
+            }
+
+            // Draw squares and characters
+            function draw() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.font = `${squareSize * 0.4}px 'IBM Plex Mono', monospace`;
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+
+                squares.forEach(square => {
+                    ctx.fillStyle = square.isHovered ? square.hoverColor : square.color;
+                    ctx.fillRect(square.x, square.y, square.size, square.size);
+                    ctx.strokeStyle = '#ffffff';
+                    //ctx.strokeRect(square.x, square.y, square.size, square.size);
+                    ctx.fillStyle = square.isHovered ? '#000000' : '#ffffff';
+                    ctx.fillText(square.char, square.x + square.size / 2, square.y + square.size / 2);
+                });
+            }
+
+            // Handle mouse/touch move
+            function onMove(event) {
+                const rect = canvas.getBoundingClientRect();
+                const x = (event.clientX || event.touches[0].clientX) - rect.left;
+                const y = (event.clientY || event.touches[0].clientY) - rect.top;
+
+                squares.forEach(square => {
+                    if (x >= square.x && x <= square.x + square.size && y >= square.y && y <= square.y + square.size) {
+                        if (!square.isHovered) {
+                            square.char = getRandomChar();
+                        }
+                        square.isHovered = true;
+                    } else {
+                        square.isHovered = false;
+                    }
+                });
+
+                draw();
+            }
+
+            // Handle resize
+            function onResize() {
+                initSquares();
+                draw();
+            }
+
+            // Initialize
+            initSquares();
+            draw();
+
+            // Auto-change characters every second
+            setInterval(() => {
+                squares.forEach(square => {
+                    square.char = getRandomChar();
+                });
+                draw();
+            }, 1000);
+
+            // Event listeners
+            canvas.addEventListener('mousemove', onMove);
+            canvas.addEventListener('touchmove', (e) => {
+                e.preventDefault();
+                onMove(e);
+            }, { passive: false });
+            window.addEventListener('resize', onResize);
+        </script>
     </body>
 </html>
